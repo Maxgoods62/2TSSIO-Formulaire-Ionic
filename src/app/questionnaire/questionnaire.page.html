@@ -220,6 +220,63 @@
     </ion-list>
 
     <!-- Cinquième question -->
+    <ion-list>
+        <ion-grid>
+          <ion-radio-group required>
+  
+            <ion-row>
+              <ion-list-header>
+                <ion-label>5. Diplôme obtenu (1 seule réponse - le plus élevé) : </ion-label>
+              </ion-list-header>
+            </ion-row>
+  
+            <ion-row>
+
+              <ion-col>
+                <ion-item>
+                  <ion-label>Aucun</ion-label>
+                  <ion-radio slot="start" name="question5" value="aucun"></ion-radio>
+                </ion-item>
+              </ion-col>
+  
+              <ion-col>
+                <ion-item>
+                  <ion-label>CAP/BEP</ion-label>
+                  <ion-radio slot="start" name="question5" value="CAP-BEP"></ion-radio>
+                </ion-item>
+              </ion-col>
+
+              <ion-col>
+                  <ion-item>
+                    <ion-label>Bac</ion-label>
+                    <ion-radio slot="start" name="question5" value="bac"></ion-radio>
+                  </ion-item>
+                </ion-col>
+
+            </ion-row>
+
+            <ion-row>
+
+                <ion-col>
+                    <ion-item>
+                      <ion-label>BTS/DUT</ion-label>
+                      <ion-radio slot="start" name="question5" value="BTS-DUT"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+      
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>License et plus</ion-label>
+                      <ion-radio slot="start" name="question5" value="license+"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+
+            </ion-row>
+  
+          </ion-radio-group>
+        </ion-grid>
+      </ion-list>
+  
 
     <!-- Sixième question -->
     <ion-list>
