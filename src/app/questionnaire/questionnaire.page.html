@@ -1,0 +1,231 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Questionnaire</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form padding-right>
+    <!-- Première question -->
+
+    <ion-list>
+      <ion-grid>
+        <ion-radio-group required>
+
+          <ion-row>
+            <ion-list-header>
+              <ion-label>1. Vous etes : </ion-label>
+            </ion-list-header>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>Homme</ion-label>
+                <ion-radio slot="start" name="question1" value="homme"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Femme</ion-label>
+                <ion-radio slot="start" name="question1" value="femme"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+        </ion-radio-group>
+      </ion-grid>
+    </ion-list>
+
+    <!-- Deuxième question -->
+
+    <ion-list>
+      <ion-grid>
+        <ion-radio-group required> 
+          <ion-row>
+            <ion-col>
+              <ion-list-header>
+                <ion-label>2. Vous avez : </ion-label>
+              </ion-list-header>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>Entre 16 et 17 ans</ion-label>
+                <ion-radio slot="start" name="question2" value="16-17"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Entre 18 et 25 ans</ion-label>
+                <ion-radio slot="start" name="question2" value="18-25"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Entre 26 et 64 ans</ion-label>
+                <ion-radio slot="start" name="question2" value="26-64"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>65 ans et plus</ion-label>
+                <ion-radio slot="start" name="question2" value="65+"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+        </ion-radio-group>
+      </ion-grid>
+    </ion-list>
+
+    <!-- Troisème question -->
+
+    <ion-list>
+      <ion-grid>
+
+        <ion-list-header>
+          <ion-label>3. Vous habitez à : </ion-label>
+        </ion-list-header>
+
+        <ion-toolbar no-border-top>
+          <ion-searchbar placeholder="Rechercher votre ville" (ionInput)="filterItems($event)" autocomplete>
+          </ion-searchbar>
+        </ion-toolbar>
+
+        <ion-list>
+          <ion-grid>
+            <ion-radio-group required>
+
+              <ion-row>
+                <ion-col *ngFor="let item of items" size="4" sizeMd="4" sizeSm="6" sizeXs="12">
+                  <ion-item>
+                    <ion-radio slot="start" name="question3" value="{{ item }}"></ion-radio>
+                    <ion-label>{{ item }}</ion-label>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col size="12">
+                  <ion-item>
+                    <ion-label>Autre ville :</ion-label>
+                    <ion-radio slot="start" name="question3" value="autre"></ion-radio>
+                    <ion-input maxlength="50" placeholder="Taper le nom de la ville" (ionInput)="question3autre($event)"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+
+            </ion-radio-group>
+          </ion-grid>
+        </ion-list>
+
+      </ion-grid>
+    </ion-list>
+
+    <!-- Quatrième question -->
+
+    <ion-list>
+      <ion-grid>
+        <ion-radio-group [(ngModel)]="question4a" name="question4a" required>
+
+          <ion-row>
+            <ion-list-header>
+              <ion-label>4. Situation actuelle : </ion-label>
+            </ion-list-header>
+          </ion-row>
+
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Lycéen</ion-label>
+                <ion-radio slot="start" name="question4a" value="lyceen"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Etudiant</ion-label>
+                <ion-radio slot="start" name="question4a" value="etudiant"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>A la recherche d'un emploi</ion-label>
+                <ion-radio slot="start" name="question4a" value="recherche-emploi"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+        </ion-radio-group>
+      </ion-grid>
+    </ion-list>
+
+    <!-- Quatrième question bis -->
+
+    <ion-list *ngIf="question4a == 'lyceen' || question4a == 'etudiant'">
+      <ion-grid>
+        <ion-radio-group>
+
+          <ion-row>
+            <ion-list-header>
+              <ion-label>4b. Quel est votre niveau d'études : </ion-label>
+            </ion-list-header>
+          </ion-row>
+
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Première / Terminale</ion-label>
+                <ion-radio slot="start" name="question4b" value="première-terminale"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>1ère année BTS / license</ion-label>
+                <ion-radio slot="start" name="question4b" value="1erBTS-license"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>2ème année BTS / Terminale</ion-label>
+                <ion-radio slot="start" name="question4b" value="2emeBTS-terminale"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>3ème année + </ion-label>
+                <ion-radio slot="start" name="question4b" value="3emeAnnee+"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+        </ion-radio-group>
+      </ion-grid>
+    </ion-list>
+
+    <ion-item>
+        <ion-label>En cochant cette case, vous accepter que l'on utilise vos données pour ... #RGPD</ion-label>
+        <ion-checkbox slot="start"></ion-checkbox>
+    </ion-item>
+
+
+    <ion-button color="primary" expand="block" (click)="loginForm()">Envoyer</ion-button>
+
+  </form>
+</ion-content>
