@@ -33,4 +33,8 @@ export class QuestionnairePage implements OnInit {
     let val = ev.target.value;
   }
 
+  question6autre(ev: any) {
+    let val = ev.target.value;
+  }
+
 }

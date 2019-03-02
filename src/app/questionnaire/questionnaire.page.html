@@ -88,7 +88,7 @@
       </ion-grid>
     </ion-list>
 
-    <!-- Troisème question -->
+    <!-- Troisième question -->
     <ion-list>
       <ion-grid>
 
@@ -222,6 +222,70 @@
     <!-- Cinquième question -->
 
     <!-- Sixième question -->
+    <ion-list>
+      <ion-grid>
+        <ion-radio-group>
+
+          <ion-row>
+            <ion-list-header>
+              <ion-label>6. Avez vous d'autres diplômes autre que scolaire : </ion-label>
+            </ion-list-header>
+          </ion-row>
+
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>BAFA</ion-label>
+                <ion-checkbox slot="start" name="question6" value="BAFA"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>BNSSA</ion-label>
+                <ion-checkbox slot="start" name="question6" value="BNSSA"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>PSC1/AFGSU</ion-label>
+                <ion-checkbox slot="start" name="question6" value="PSC1-AFGSU"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>PSE1/PSE1</ion-label>
+                <ion-checkbox slot="start" name="question6" value="PSE1-PSE1"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>TOEIC</ion-label>
+                <ion-checkbox slot="start" name="question6" value="TOEIC"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Autres, précisez :</ion-label>
+                <ion-input maxlength="200" placeholder="Taper le nom de vos autres diplômes"
+                  (ionInput)="question6autre($event)"></ion-input>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+        </ion-radio-group>
+      </ion-grid>
+    </ion-list>
 
     <!-- Septième question -->
 
@@ -248,7 +312,7 @@
 
     <!-- Case RGPD -->
     <ion-item>
-      <ion-label>En cochant cette case, vous accepter que l'on utilise vos données pour ... #RGPD</ion-label>
+      <ion-label>En cochant cette case, vous acceptez que l'on utilise vos données pour ... #RGPD</ion-label>
       <ion-checkbox slot="start"></ion-checkbox>
     </ion-item>
 
