@@ -7,8 +7,8 @@
 <ion-content padding>
 
   <form padding-right>
-    <!-- Première question -->
 
+    <!-- Première question -->
     <ion-list>
       <ion-grid>
         <ion-radio-group required>
@@ -40,10 +40,10 @@
     </ion-list>
 
     <!-- Deuxième question -->
-
     <ion-list>
       <ion-grid>
-        <ion-radio-group required> 
+        <ion-radio-group required>
+
           <ion-row>
             <ion-col>
               <ion-list-header>
@@ -53,6 +53,7 @@
           </ion-row>
 
           <ion-row>
+
             <ion-col>
               <ion-item>
                 <ion-label>Entre 16 et 17 ans</ion-label>
@@ -80,6 +81,7 @@
                 <ion-radio slot="start" name="question2" value="65+"></ion-radio>
               </ion-item>
             </ion-col>
+
           </ion-row>
 
         </ion-radio-group>
@@ -87,7 +89,6 @@
     </ion-list>
 
     <!-- Troisème question -->
-
     <ion-list>
       <ion-grid>
 
@@ -118,7 +119,8 @@
                   <ion-item>
                     <ion-label>Autre ville :</ion-label>
                     <ion-radio slot="start" name="question3" value="autre"></ion-radio>
-                    <ion-input maxlength="50" placeholder="Taper le nom de la ville" (ionInput)="question3autre($event)"></ion-input>
+                    <ion-input maxlength="50" placeholder="Taper le nom de la ville"
+                      (ionInput)="question3autre($event)"></ion-input>
                   </ion-item>
                 </ion-col>
               </ion-row>
@@ -131,7 +133,6 @@
     </ion-list>
 
     <!-- Quatrième question -->
-
     <ion-list>
       <ion-grid>
         <ion-radio-group [(ngModel)]="question4a" name="question4a" required>
@@ -172,8 +173,7 @@
     </ion-list>
 
     <!-- Quatrième question bis -->
-
-    <ion-list *ngIf="question4a == 'lyceen' || question4a == 'etudiant'">
+    <ion-list *ngIf="question4a === 'lyceen' || question4a === 'etudiant'">
       <ion-grid>
         <ion-radio-group>
 
@@ -219,12 +219,40 @@
       </ion-grid>
     </ion-list>
 
+    <!-- Cinquième question -->
+
+    <!-- Sixième question -->
+
+    <!-- Septième question -->
+
+    <!-- Huitième question -->
+
+    <!-- FORUM 2019 -->
+
+    <!-- Neuvième question -->
+
+    <!-- Dixième question -->
+
+    <!-- Onzième question -->
+
+    <!-- Douzième question -->
+
+    <!-- Trezième question -->
+
+    <!-- Quatorzième question -->
+
+    <!-- Quinzième question -->
+
+    <!-- Seizième question -->
+
+
+    <!-- Case RGPD -->
     <ion-item>
-        <ion-label>En cochant cette case, vous accepter que l'on utilise vos données pour ... #RGPD</ion-label>
-        <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label>En cochant cette case, vous accepter que l'on utilise vos données pour ... #RGPD</ion-label>
+      <ion-checkbox slot="start"></ion-checkbox>
     </ion-item>
 
-
+    <!-- Bouton envoyer -->
     <ion-button color="primary" expand="block" (click)="loginForm()">Envoyer</ion-button>
 
   </form>
