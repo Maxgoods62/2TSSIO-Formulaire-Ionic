@@ -16,7 +16,7 @@ export class QuestionnairePage implements OnInit {
   }
 
   setItems() {
-    this.items = ['Baincthum', 'Boulogne sur Mer', 'Condette', 'Conteville-les-Boulogne', 'Dannes', 'Echinghen', 'Equihen plage', 'Hesdigneul-les-Boulogne', 'Hesdin l\'abbé', 'Isques', 'La Cappelle les Boulogne'];
+    this.items = ['Baincthum', 'Boulogne sur Mer', 'Condette', 'Conteville-les-Boulogne', 'Dannes', 'Echinghen', 'Equihen plage', 'Hesdigneul-les-Boulogne', 'Hesdin l\'abbé', 'Isques', 'La Cappelle les Boulogne', 'Le Portel', 'Nesles', 'Neufchâtel Hardelot', 'Outreau', 'Pernes-les-Boulognes', 'Pittefaux', 'St Etienne-au-mont', 'St Léonard', 'St-Martin-Boulogne', 'Wimereux', 'Wimille'];
   }
 
   filterItems(ev: any) {
