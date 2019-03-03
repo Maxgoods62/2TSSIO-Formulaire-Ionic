@@ -178,7 +178,6 @@
                 <ion-radio slot="start" name="question4a" value="recherche-emploi"></ion-radio>
               </ion-item>
             </ion-col>
-
           </ion-row>
 
         </ion-radio-group>
@@ -188,7 +187,7 @@
     <!-- Quatrième question bis -->
     <ion-list *ngIf="question4a === 'lyceen' || question4a === 'etudiant'">
       <ion-grid>
-        <ion-radio-group (ionChange)="questionValue('question4b',$event)">
+        <ion-radio-group [(ngModel)]="question4b" name="question4b" (ionChange)="questionValue('question4b',$event)">
 
           <ion-row>
             <ion-list-header>
@@ -201,7 +200,7 @@
             <ion-col>
               <ion-item>
                 <ion-label>Première / Terminale</ion-label>
-                <ion-radio slot="start" name="question4b" value="première-terminale"></ion-radio>
+                <ion-radio slot="start" name="question4b" value="premiere-terminale"></ion-radio>
               </ion-item>
             </ion-col>
 
@@ -609,7 +608,7 @@
     <!-- Question 12 -->
     <ion-list>
       <ion-grid>
-        <ion-radio-group (ionChange)="questionValue('question12',$event)">
+        <ion-radio-group (ionChange)="questionValue('question12',$event)" name="question12" [(ngModel)]="question12">
 
           <ion-row>
             <ion-list-header>
@@ -636,6 +635,27 @@
         </ion-radio-group>
       </ion-grid>
     </ion-list>
+
+    <ion-list *ngIf="question12 === 'oui'">
+        <ion-grid>
+          <ion-radio-group>
+  
+            <ion-row>
+              <ion-list-header>
+                <ion-label>Combien d'offres intéressantes ? </ion-label>
+              </ion-list-header>
+            </ion-row>
+  
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-input (ionChange)="questionValue('question12b',$event)"></ion-input>
+                </ion-item>
+              </ion-col>
+
+          </ion-radio-group>
+        </ion-grid>
+      </ion-list>
 
     <!-- Question 13 -->
     <ion-list>
@@ -800,8 +820,8 @@
 
     <!-- Case RGPD -->
     <ion-item>
-      <ion-label>En cochant cette case, vous acceptez que l'on utilise vos données pour ... #RGPD</ion-label>
-      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label class="abc">En cochant cette case, vous acceptez que l'on utilise vos données de façon anonymisées à des fins statistiques.</ion-label>
+      <ion-checkbox slot="start" (ionChange)="rgpdCheckbox($event)"></ion-checkbox>
     </ion-item>
 
     <!-- Bouton envoyer -->

@@ -30,12 +30,14 @@ export class QuestionnairePage implements OnInit {
       question10: [''],
       question11: [''],
       question12: [''],
+      question12b: [''],
       question13: [''],
       question14: [''],
       question15: [''],
       question15b: [''],
       question16: [''],
-      dateVisite: ['']
+      dateVisite: [''],
+      RGPD: ['', Validators.required]
     })
   }
 
@@ -62,57 +64,124 @@ export class QuestionnairePage implements OnInit {
 
 
   sendQuestionnaire() {
-    this.questionnaireForm.controls["dateVisite"].setValue(new Date());
+    var count = 0;
+    if (this.questionnaireForm.value["question1"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question2"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question3"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question4a"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question5"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question6"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question7"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question8"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question9"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question10"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question11"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question12"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question13"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question14"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question15"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question15b"] != "") {
+      count++;
+    }
+    if (this.questionnaireForm.value["question16"] != "") {
+      count++;
+    }
 
-    /*
-    this.storage.get('counter')
-      .then((val) => { })
-      .catch((err) => {
-        console.log(err);
-        this.storage.set('counter', 0);
-      }
-      );
+    if (count >= 10) {
+      if (this.questionnaireForm.value["RGPD"] == true) {
+        this.questionnaireForm.controls["dateVisite"].setValue(new Date());
 
-    this.storage.get('counter').then((val) => {
-      var valeur = parseInt(val);
-      if (typeof valeur != 'number') {
-        valeur = 0;
-      }
-      valeur++;
-      this.storage.set(valeur.toString(), this.questionnaireForm.value);
-      this.storage.set('counter', valeur);
-      console.log(valeur);
-    });
-
-    this.storage.get("1").then((val2) => {
-      console.log(val2);
-    });
-    */
-
-    this.storage.get('reponse3').then((val) => {
-      var data = new Array();
-      if (val === null) {
-         data.push(this.questionnaireForm.value);
-      } else {
-        val.forEach(function (element1) {
-          data.push(element1);
+        /*
+        this.storage.get('counter')
+          .then((val) => { })
+          .catch((err) => {
+            console.log(err);
+            this.storage.set('counter', 0);
+          }
+          );
+    
+        this.storage.get('counter').then((val) => {
+          var valeur = parseInt(val);
+          if (typeof valeur != 'number') {
+            valeur = 0;
+          }
+          valeur++;
+          this.storage.set(valeur.toString(), this.questionnaireForm.value);
+          this.storage.set('counter', valeur);
+          console.log(valeur);
         });
-        data.push(this.questionnaireForm.value);
+    
+        this.storage.get("1").then((val2) => {
+          console.log(val2);
+        });
+        */
+
+        this.storage.get('reponse3').then((val) => {
+          var data = new Array();
+          if (val === null) {
+            data.push(this.questionnaireForm.value);
+          } else {
+            val.forEach(function (element1) {
+              data.push(element1);
+            });
+            data.push(this.questionnaireForm.value);
+          }
+
+          this.storage.set('reponse3', data);
+
+          /*
+          data.forEach(function (element) {
+            console.log(element);
+          });
+          */
+        });
+
+
+
+        this.router.navigateByUrl('remerciement');
+      } else {
+        // RGPD
+        console.log("Pas de RGPD");
       }
+    } else {
+      // PAs assez de réponse
+      console.log("Pas assez de réponse");
+    }
 
-      this.storage.set('reponse3', data);
+  }
 
-      /*
-      data.forEach(function (element) {
-        console.log(element);
-      });
-      */
-    });
-
-
-
-    this.router.navigateByUrl('remerciement');
-
+  rgpdCheckbox(event) {
+    this.questionnaireForm.controls["RGPD"].setValue(event.detail.checked);
   }
 
 

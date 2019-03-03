@@ -1,0 +1,107 @@
+<ion-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+          <ion-button href="home">Retour à l'accueil</ion-button>
+        </ion-col>
+  
+        <ion-col align="center"size="8">
+          <ion-toolbar>
+            <ion-title style="color:black;">Page Administration</ion-title>
+          </ion-toolbar>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-header>
+
+<ion-content padding>
+  Bonjour, voici les données :
+  <ion-list>
+    <ion-grid>
+      <ion-row *ngFor="let item of items" size="4" sizeMd="4" sizeSm="6" sizeXs="12">
+        <table class="tg">
+          <tr>
+            <td class="tg-0lax">Date de la visite</td>
+            <td class="tg-0lax">{{ item.dateVisite }}</td>
+          </tr>
+          <tr>
+            <th class="tg-0pky">Sexe</th>
+            <th class="tg-0pky">{{ item.question1 }}</th>
+          </tr>
+          <tr>
+            <td class="tg-0pky">Age</td>
+            <td class="tg-0pky">{{ item.question2 }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0pky">Ville</td>
+            <td class="tg-0pky">{{ item.question3 }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Situation actuelle</td>
+            <td class="tg-0lax">{{ item.question4a }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Niveau d'études</td>
+            <td class="tg-0lax">{{ item.question4b }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Diplôme obtenu</td>
+            <td class="tg-0lax">{{ item.question5 }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Diplôme autre que scolaire</td>
+            <td class="tg-0lax">{{ item.question6 }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Permis ?</td>
+            <td class="tg-0lax">{{ item.question7 }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Voiture ?</td>
+            <td class="tg-0lax">{{ item.question8 }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Comment avez-vous été informé ?</td>
+            <td class="tg-0lax">{{ item.question9 }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Quel secteur d'activité vous intéresse ?</td>
+            <td class="tg-0lax">{{ item.question10 }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Orientation dans le forum</td>
+            <td class="tg-0lax">{{ item.question11 }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Avez-vous trouvé des offres intéressanes ?</td>
+            <td class="tg-0lax">{{ item.question12 }}</td>
+          </tr>
+          <tr>
+              <td class="tg-0lax">Combien d'offres intéressanes ?</td>
+              <td class="tg-0lax">{{ item.question12b }}</td>
+            </tr>
+          <tr>
+            <td class="tg-0lax">Auprès de quelle entreprise avez-vous déposé un CV ?</td>
+            <td class="tg-0lax">{{ item.question13 }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Avez-vous décroché ?</td>
+            <td class="tg-0lax">{{ item.question14 }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Etes-vous pret à vous déplacer ?</td>
+            <td class="tg-0lax">{{ item.question15 }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Dans un rayon de combien ?</td>
+            <td class="tg-0lax">{{ item.question15b }}</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Avez vous des remarques ?</td>
+            <td class="tg-0lax">{{ item.question16 }}</td>
+          </tr>
+        </table>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+</ion-content>
