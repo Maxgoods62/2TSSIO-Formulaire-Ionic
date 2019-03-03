@@ -35,6 +35,7 @@ export class QuestionnairePage implements OnInit {
       question16: [''],
       question17: [''],
       question18: [''],
+      dateVisite :  ['']
     })
   }
 
@@ -60,7 +61,9 @@ export class QuestionnairePage implements OnInit {
 
 
 
-  sendQuestionnaire() {
+  sendQuestionnaire() 
+  {
+    this.questionnaireForm.controls["dateVisite"].setValue(new Date());
     console.log(this.questionnaireForm.value)
   }
 

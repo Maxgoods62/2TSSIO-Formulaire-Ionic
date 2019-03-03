@@ -1,36 +1,49 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Questionnaire</ion-title>
-  </ion-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2">
+        <ion-button href="home">Retour à l'accueil</ion-button>
+      </ion-col>
+
+      <ion-col size="10">
+        <ion-toolbar>
+          <ion-title align="center">Questionnaire</ion-title>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-header>
 
 <ion-content padding>
 
+  <h2 align="center">Informations personnelles</h2>
   <form (ngSubmit)="sendQuestionnaire()">
     <!-- Première question -->
     <ion-list>
       <ion-grid>
         <ion-radio-group (ionChange)="questionValue('question1',$event)">
 
-          <ion-row> <!-- Première ligne -->
+          <ion-row>
+            <!-- Première ligne -->
             <ion-list-header>
               <ion-label>1. Vous etes : </ion-label>
             </ion-list-header>
           </ion-row>
 
-          <ion-row> <!-- Deuxième ligne -->
+          <ion-row>
+            <!-- Deuxième ligne -->
 
             <ion-col>
               <ion-item>
                 <ion-label>Homme</ion-label>
-                <ion-radio slot="start"name="question1a" value="homme" ></ion-radio>
+                <ion-radio slot="start" name="question1a" value="homme"></ion-radio>
               </ion-item>
             </ion-col>
 
             <ion-col>
               <ion-item>
                 <ion-label>Femme</ion-label>
-                <ion-radio slot="start"  name="question1b" value="femme"></ion-radio>
+                <ion-radio slot="start" name="question1b" value="femme"></ion-radio>
               </ion-item>
             </ion-col>
 
@@ -221,70 +234,12 @@
 
     <!-- Cinquième question -->
     <ion-list>
-        <ion-grid>
-          <ion-radio-group (ionChange)="questionValue('question5',$event)">
-  
-            <ion-row>
-              <ion-list-header>
-                <ion-label>5. Diplôme obtenu (1 seule réponse - le plus élevé) : </ion-label>
-              </ion-list-header>
-            </ion-row>
-  
-            <ion-row>
-
-              <ion-col>
-                <ion-item>
-                  <ion-label>Aucun</ion-label>
-                  <ion-radio slot="start" name="question5" value="aucun"></ion-radio>
-                </ion-item>
-              </ion-col>
-  
-              <ion-col>
-                <ion-item>
-                  <ion-label>CAP/BEP</ion-label>
-                  <ion-radio slot="start" name="question5" value="CAP-BEP"></ion-radio>
-                </ion-item>
-              </ion-col>
-
-              <ion-col>
-                  <ion-item>
-                    <ion-label>Bac</ion-label>
-                    <ion-radio slot="start" name="question5" value="bac"></ion-radio>
-                  </ion-item>
-                </ion-col>
-
-            </ion-row>
-
-            <ion-row>
-
-                <ion-col>
-                    <ion-item>
-                      <ion-label>BTS/DUT</ion-label>
-                      <ion-radio slot="start" name="question5" value="BTS-DUT"></ion-radio>
-                    </ion-item>
-                  </ion-col>
-      
-                  <ion-col>
-                    <ion-item>
-                      <ion-label>License et plus</ion-label>
-                      <ion-radio slot="start" name="question5" value="license+"></ion-radio>
-                    </ion-item>
-                  </ion-col>
-
-            </ion-row>
-  
-          </ion-radio-group>
-        </ion-grid>
-      </ion-list>
-  
-
-    <!-- Sixième question -->
-    <ion-list>
       <ion-grid>
+        <ion-radio-group (ionChange)="questionValue('question5',$event)">
 
-          <ion-row> 
+          <ion-row>
             <ion-list-header>
-              <ion-label>6. Avez vous d'autres diplômes autre que scolaire ?  </ion-label>
+              <ion-label>5. Diplôme obtenu (1 seule réponse - le plus élevé) : </ion-label>
             </ion-list-header>
           </ion-row>
 
@@ -292,22 +247,22 @@
 
             <ion-col>
               <ion-item>
-                <ion-label>BAFA</ion-label>
-                <ion-checkbox slot="start" name="question6" value="BAFA" (ionChange)="checkboxValue('question6', $event)"></ion-checkbox>
+                <ion-label>Aucun</ion-label>
+                <ion-radio slot="start" name="question5" value="aucun"></ion-radio>
               </ion-item>
             </ion-col>
 
             <ion-col>
               <ion-item>
-                <ion-label>BNSSA</ion-label>
-                <ion-checkbox slot="start" name="question6" value="BNSSA" (ionChange)="checkboxValue('question6', $event)"></ion-checkbox>
+                <ion-label>CAP/BEP</ion-label>
+                <ion-radio slot="start" name="question5" value="CAP-BEP"></ion-radio>
               </ion-item>
             </ion-col>
 
             <ion-col>
               <ion-item>
-                <ion-label>PSC1/AFGSU</ion-label>
-                <ion-checkbox slot="start" name="question6" value="PSC1-AFGSU" (ionChange)="checkboxValue('question6', $event)"></ion-checkbox>
+                <ion-label>Bac</ion-label>
+                <ion-radio slot="start" name="question5" value="bac"></ion-radio>
               </ion-item>
             </ion-col>
 
@@ -317,53 +272,531 @@
 
             <ion-col>
               <ion-item>
-                <ion-label>PSE1/PSE1</ion-label>
-                <ion-checkbox slot="start" name="question6" value="PSE1-PSE1" (ionChange)="checkboxValue('question6', $event)" ></ion-checkbox>
+                <ion-label>BTS/DUT</ion-label>
+                <ion-radio slot="start" name="question5" value="BTS-DUT"></ion-radio>
               </ion-item>
             </ion-col>
 
             <ion-col>
               <ion-item>
-                <ion-label>TOEIC</ion-label>
-                <ion-checkbox slot="start" name="question6" value="TOEIC" (ionChange)="checkboxValue('question6', $event)"></ion-checkbox>
-              </ion-item>
-            </ion-col>
-
-            <ion-col>
-              <ion-item>
-                <ion-label>Autres, précisez :</ion-label>
-                <ion-input maxlength="200" placeholder="Taper le nom de vos autres diplômes"
-                  (ionChange)="question6autre($event)"></ion-input>
+                <ion-label>License et plus</ion-label>
+                <ion-radio slot="start" name="question5" value="license+"></ion-radio>
               </ion-item>
             </ion-col>
 
           </ion-row>
 
+        </ion-radio-group>
       </ion-grid>
     </ion-list>
 
-    <!-- Septième question -->
 
-    <!-- Huitième question -->
+    <!-- Sixième question -->
+    <ion-list>
+      <ion-grid>
+
+        <ion-row>
+          <ion-list-header>
+            <ion-label>6. Avez vous d'autres diplômes autre que scolaire ? </ion-label>
+          </ion-list-header>
+        </ion-row>
+
+        <ion-row>
+
+          <ion-col>
+            <ion-item>
+              <ion-label>BAFA</ion-label>
+              <ion-checkbox slot="start" name="question6" value="BAFA" (ionChange)="checkboxValue('question6', $event)">
+              </ion-checkbox>
+            </ion-item>
+          </ion-col>
+
+          <ion-col>
+            <ion-item>
+              <ion-label>BNSSA</ion-label>
+              <ion-checkbox slot="start" name="question6" value="BNSSA"
+                (ionChange)="checkboxValue('question6', $event)"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+
+          <ion-col>
+            <ion-item>
+              <ion-label>PSC1/AFGSU</ion-label>
+              <ion-checkbox slot="start" name="question6" value="PSC1-AFGSU"
+                (ionChange)="checkboxValue('question6', $event)"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row>
+
+          <ion-col>
+            <ion-item>
+              <ion-label>PSE1/PSE1</ion-label>
+              <ion-checkbox slot="start" name="question6" value="PSE1-PSE1"
+                (ionChange)="checkboxValue('question6', $event)"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+
+          <ion-col>
+            <ion-item>
+              <ion-label>TOEIC</ion-label>
+              <ion-checkbox slot="start" name="question6" value="TOEIC"
+                (ionChange)="checkboxValue('question6', $event)"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+
+          <ion-col>
+            <ion-item>
+              <ion-label>Autres, précisez :</ion-label>
+              <ion-input maxlength="200" placeholder="Taper le nom de vos autres diplômes"
+                (ionChange)="question6autre($event)"></ion-input>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+
+      </ion-grid>
+    </ion-list>
+
+    <!-- Question 7 -->
+    <ion-list>
+      <ion-grid>
+        <ion-radio-group name="question7" [(ngModel)]="question7">
+
+          <ion-row>
+            <ion-list-header>
+              <ion-label>7. Avez vous le permis ? </ion-label>
+            </ion-list-header>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>Oui</ion-label>
+                <ion-radio slot="start" name="question7" value="oui"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Non</ion-label>
+                <ion-radio slot="start" name="question7" value="non"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+        </ion-radio-group>
+      </ion-grid>
+    </ion-list>
+
+    <!-- Question 7b -->
+    <ion-list *ngIf="question7 === 'oui'">
+      <ion-grid>
+        <ion-radio-group>
+
+          <ion-row>
+            <ion-list-header>
+              <ion-label>7b. Avez-vous un véhicule ? </ion-label>
+            </ion-list-header>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>Oui</ion-label>
+                <ion-radio slot="start" name="question7b" value="oui"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Non</ion-label>
+                <ion-radio slot="start" name="question7b" value="non"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+        </ion-radio-group>
+      </ion-grid>
+    </ion-list>
 
     <!-- FORUM 2019 -->
+    <h2 align="center">Forum 2019</h2>
 
-    <!-- Neuvième question -->
+    <!-- Question 8 -->
+    <ion-list>
+      <ion-grid>
+        <ion-radio-group>
 
-    <!-- Dixième question -->
+          <ion-row>
+            <ion-list-header>
+              <ion-label>8. Comment avez-vous été informé ? (Plusieurs réponses possibles) </ion-label>
+            </ion-list-header>
+          </ion-row>
 
-    <!-- Onzième question -->
 
-    <!-- Douzième question -->
+          <ion-row>
 
-    <!-- Trezième question -->
+            <ion-col>
+              <ion-item>
+                <ion-label>Internet</ion-label>
+                <ion-checkbox slot="start" name="question8" value="internet"></ion-checkbox>
+              </ion-item>
+            </ion-col>
 
-    <!-- Quatorzième question -->
+            <ion-col>
+              <ion-item>
+                <ion-label>Affiche</ion-label>
+                <ion-checkbox slot="start" name="question8" value="affiche"></ion-checkbox>
+              </ion-item>
+            </ion-col>
 
-    <!-- Quinzième question -->
+            <ion-col>
+              <ion-item>
+                <ion-label>Presse</ion-label>
+                <ion-checkbox slot="start" name="question8" value="presse"></ion-checkbox>
+              </ion-item>
+            </ion-col>
 
-    <!-- Seizième question -->
+          </ion-row>
 
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Réseaux sociaux</ion-label>
+                <ion-checkbox slot="start" name="question8" value="reseaux-sociaux"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Famille/amis</ion-label>
+                <ion-checkbox slot="start" name="question8" value="famille-amis"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Autre, précisez :</ion-label>
+                <ion-input maxlength="200" (ionInput)="question9autre($event)"></ion-input>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+        </ion-radio-group>
+      </ion-grid>
+    </ion-list>
+
+    <!-- Question 9 -->
+    <ion-list>
+      <ion-grid>
+        <ion-radio-group>
+
+          <ion-row>
+            <ion-list-header>
+              <ion-label>9. Quel secteur d'activité vous intéresse ? </ion-label>
+            </ion-list-header>
+          </ion-row>
+
+
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Restauration</ion-label>
+                <ion-checkbox slot="start" name="question9" value="restauration"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Animation</ion-label>
+                <ion-checkbox slot="start" name="question9" value="animation"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Hôtellerie</ion-label>
+                <ion-checkbox slot="start" name="question9" value="hotellerie"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Services à la personne</ion-label>
+                <ion-checkbox slot="start" name="question9" value="services-a-la-personne"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Vente</ion-label>
+                <ion-checkbox slot="start" name="question9" value="vente"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Autre, précisez :</ion-label>
+                <ion-input maxlength="200" (ionInput)="question10autre($event)"></ion-input>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+        </ion-radio-group>
+      </ion-grid>
+    </ion-list>
+
+    <!-- Question 10 -->
+    <ion-list>
+      <ion-grid>
+        <ion-radio-group required>
+
+          <ion-row>
+            <ion-col>
+              <ion-list-header>
+                <ion-label>10. Comment vous êtes-vous orienté(e) dans le forum ? </ion-label>
+              </ion-list-header>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Très facilement</ion-label>
+                <ion-radio slot="start" name="question10" value="tres-facilement"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Assez facilement</ion-label>
+                <ion-radio slot="start" name="question10" value="assez-facilement"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Difficilement</ion-label>
+                <ion-radio slot="start" name="question10" value="difficilement"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Très difficilement</ion-label>
+                <ion-radio slot="start" name="question10" value="tres-difficilement"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+        </ion-radio-group>
+      </ion-grid>
+    </ion-list>
+
+    <!-- Question 11 -->
+    <ion-list>
+      <ion-grid>
+        <ion-radio-group>
+
+          <ion-row>
+            <ion-list-header>
+              <ion-label>11. Avez-vous trouvé des offres intéressantes ? </ion-label>
+            </ion-list-header>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>Oui</ion-label>
+                <ion-radio slot="start" name="question11" value="oui"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Non</ion-label>
+                <ion-radio slot="start" name="question11" value="non"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+        </ion-radio-group>
+      </ion-grid>
+    </ion-list>
+
+    <!-- Question 12 -->
+    <ion-list>
+      <ion-grid>
+        <ion-row>
+          <ion-list-header>
+            <ion-label>12. Auprès de quelle(s) entreprise(s) avez-vous déposé un CV ? </ion-label>
+          </ion-list-header>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Lister les entreprises ici :</ion-label>
+              <ion-textarea></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+
+
+    <!-- Question 13 -->
+    <ion-list>
+      <ion-grid>
+        <ion-radio-group>
+
+          <ion-row>
+            <ion-list-header>
+              <ion-label>13. Qu'avez-vous obtenu à l'issue de ce forum ? </ion-label>
+            </ion-list-header>
+          </ion-row>
+
+
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Un job</ion-label>
+                <ion-checkbox slot="start" name="question13" value="un-job"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Un contact/rendez-vous</ion-label>
+                <ion-checkbox slot="start" name="question13" value="un-contact-rendez-vous"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Des informations</ion-label>
+                <ion-checkbox slot="start" name="question13" value="des-informations"></ion-checkbox>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+        </ion-radio-group>
+      </ion-grid>
+    </ion-list>
+
+    <!-- Question 14 -->
+    <ion-list>
+      <ion-grid>
+        <ion-radio-group name="question14" [(ngModel)]="question14">
+
+          <ion-row>
+            <ion-list-header>
+              <ion-label>15. Êtes-vous prêt à vous déplacer ? </ion-label>
+            </ion-list-header>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>En France</ion-label>
+                <ion-radio slot="start" name="question14" value="en-france"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Dans la région Hauts-de-France</ion-label>
+                <ion-radio slot="start" name="question14" value="dans-la-region-hauts-de-france"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Non</ion-label>
+                <ion-radio slot="start" name="question14" value="non"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+        </ion-radio-group>
+      </ion-grid>
+    </ion-list>
+
+
+    <!-- Question 14b-->
+    <ion-list *ngIf="question14 === 'en-france' || question14 === 'dans-la-region-hauts-de-france'">
+      <ion-grid>
+        <ion-radio-group>
+
+          <ion-row>
+            <ion-list-header>
+              <ion-label>15b.Dans un rayon de : </ion-label>
+            </ion-list-header>
+          </ion-row>
+
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Maximum 30 km</ion-label>
+                <ion-radio slot="start" name="question14b" value="maximum-30-km"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Maximum 100 km</ion-label>
+                <ion-radio slot="start" name="question14b" value="maximum-100-km"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>Plus de 100 km</ion-label>
+                <ion-radio slot="start" name="question14b" value="plus-de-100-km"></ion-radio>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+
+        </ion-radio-group>
+      </ion-grid>
+    </ion-list>
+
+    <!-- Question 15 -->
+    <ion-list>
+      <ion-grid>
+        <ion-row>
+          <ion-list-header>
+            <ion-label>15. Avez-vous des remarques particulières à formuler ? </ion-label>
+          </ion-list-header>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Remarques</ion-label>
+              <ion-textarea></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
 
     <!-- Case RGPD -->
     <ion-item>
@@ -372,7 +805,7 @@
     </ion-item>
 
     <!-- Bouton envoyer -->
-    <ion-button color="primary" expand="block" type="submit" >Envoyer</ion-button>
+    <ion-button color="primary" expand="block" type="submit">Envoyer</ion-button>
 
   </form>
 </ion-content>
