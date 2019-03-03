@@ -1,22 +1,22 @@
 <ion-header>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="2">
-        <ion-button href="home">Retour à l'accueil</ion-button>
-      </ion-col>
-
-      <ion-col size="10">
-        <ion-toolbar>
-          <ion-title align="center">Questionnaire</ion-title>
-        </ion-toolbar>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+          <ion-button href="home">Retour à l'accueil</ion-button>
+        </ion-col>
+  
+        <ion-col align="center"size="8">
+          <ion-toolbar>
+            <ion-title style="color:black;">Questionnaire</ion-title>
+          </ion-toolbar>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-header>
 
 <ion-content padding>
 
-  <h2 align="center">Informations personnelles</h2>
+    <h3 align="center" style="border-style:double;">Informations personnelles</h3>
   <form (ngSubmit)="sendQuestionnaire()">
     <!-- Première question -->
     <ion-list>
@@ -207,8 +207,8 @@
 
             <ion-col>
               <ion-item>
-                <ion-label>1ère année BTS / license</ion-label>
-                <ion-radio slot="start" name="question4b" value="1erBTS-license"></ion-radio>
+                <ion-label>1ère année BTS / licence</ion-label>
+                <ion-radio slot="start" name="question4b" value="1erBTS-licence"></ion-radio>
               </ion-item>
             </ion-col>
 
@@ -363,7 +363,7 @@
     <!-- Question 7 -->
     <ion-list>
       <ion-grid>
-        <ion-radio-group name="question7" [(ngModel)]="question7">
+        <ion-radio-group name="question7" [(ngModel)]="question7" (ionChange)="questionValue('question7',$event)">
 
           <ion-row>
             <ion-list-header>
@@ -391,10 +391,10 @@
       </ion-grid>
     </ion-list>
 
-    <!-- Question 7b -->
+    <!-- Question 8 -->
     <ion-list *ngIf="question7 === 'oui'">
       <ion-grid>
-        <ion-radio-group>
+        <ion-radio-group (ionChange)="questionValue('question8',$event)">
 
           <ion-row>
             <ion-list-header>
@@ -423,9 +423,9 @@
     </ion-list>
 
     <!-- FORUM 2019 -->
-    <h2 align="center">Forum 2019</h2>
+    <h3 align="center" style="border-style:double;">Forum 2019</h3>
 
-    <!-- Question 8 -->
+    <!-- Question 9 -->
     <ion-list>
       <ion-grid>
         <ion-radio-group>
@@ -442,21 +442,21 @@
             <ion-col>
               <ion-item>
                 <ion-label>Internet</ion-label>
-                <ion-checkbox slot="start" name="question8" value="internet"></ion-checkbox>
+                <ion-checkbox slot="start" name="question8" value="internet" (ionChange)="checkboxValue('question9', $event)"></ion-checkbox>
               </ion-item>
             </ion-col>
 
             <ion-col>
               <ion-item>
                 <ion-label>Affiche</ion-label>
-                <ion-checkbox slot="start" name="question8" value="affiche"></ion-checkbox>
+                <ion-checkbox slot="start" name="question8" value="affiche" (ionChange)="checkboxValue('question9', $event)"></ion-checkbox>
               </ion-item>
             </ion-col>
 
             <ion-col>
               <ion-item>
                 <ion-label>Presse</ion-label>
-                <ion-checkbox slot="start" name="question8" value="presse"></ion-checkbox>
+                <ion-checkbox slot="start" name="question8" value="presse" (ionChange)="checkboxValue('question9', $event)"></ion-checkbox>
               </ion-item>
             </ion-col>
 
@@ -467,14 +467,14 @@
             <ion-col>
               <ion-item>
                 <ion-label>Réseaux sociaux</ion-label>
-                <ion-checkbox slot="start" name="question8" value="reseaux-sociaux"></ion-checkbox>
+                <ion-checkbox slot="start" name="question8" value="reseaux-sociaux" (ionChange)="checkboxValue('question9', $event)"></ion-checkbox>
               </ion-item>
             </ion-col>
 
             <ion-col>
               <ion-item>
                 <ion-label>Famille/amis</ion-label>
-                <ion-checkbox slot="start" name="question8" value="famille-amis"></ion-checkbox>
+                <ion-checkbox slot="start" name="question8" value="famille-amis" (ionChange)="checkboxValue('question9', $event)" ></ion-checkbox>
               </ion-item>
             </ion-col>
 
@@ -491,7 +491,7 @@
       </ion-grid>
     </ion-list>
 
-    <!-- Question 9 -->
+    <!-- Question 10 -->
     <ion-list>
       <ion-grid>
         <ion-radio-group>
@@ -508,21 +508,21 @@
             <ion-col>
               <ion-item>
                 <ion-label>Restauration</ion-label>
-                <ion-checkbox slot="start" name="question9" value="restauration"></ion-checkbox>
+                <ion-checkbox slot="start" name="question9" value="restauration" (ionChange)="checkboxValue('question10', $event)"></ion-checkbox>
               </ion-item>
             </ion-col>
 
             <ion-col>
               <ion-item>
                 <ion-label>Animation</ion-label>
-                <ion-checkbox slot="start" name="question9" value="animation"></ion-checkbox>
+                <ion-checkbox slot="start" name="question9" value="animation" (ionChange)="checkboxValue('question10', $event)"></ion-checkbox>
               </ion-item>
             </ion-col>
 
             <ion-col>
               <ion-item>
                 <ion-label>Hôtellerie</ion-label>
-                <ion-checkbox slot="start" name="question9" value="hotellerie"></ion-checkbox>
+                <ion-checkbox slot="start" name="question9" value="hotellerie" (ionChange)="checkboxValue('question10', $event)"></ion-checkbox>
               </ion-item>
             </ion-col>
 
@@ -533,14 +533,14 @@
             <ion-col>
               <ion-item>
                 <ion-label>Services à la personne</ion-label>
-                <ion-checkbox slot="start" name="question9" value="services-a-la-personne"></ion-checkbox>
+                <ion-checkbox slot="start" name="question9" value="services-a-la-personne" (ionChange)="checkboxValue('question10', $event)"></ion-checkbox>
               </ion-item>
             </ion-col>
 
             <ion-col>
               <ion-item>
                 <ion-label>Vente</ion-label>
-                <ion-checkbox slot="start" name="question9" value="vente"></ion-checkbox>
+                <ion-checkbox slot="start" name="question9" value="vente" (ionChange)="checkboxValue('question10', $event)"></ion-checkbox>
               </ion-item>
             </ion-col>
 
@@ -557,10 +557,10 @@
       </ion-grid>
     </ion-list>
 
-    <!-- Question 10 -->
+    <!-- Question 11 -->
     <ion-list>
       <ion-grid>
-        <ion-radio-group required>
+        <ion-radio-group required (ionChange)="questionValue('question11',$event)">
 
           <ion-row>
             <ion-col>
@@ -606,10 +606,10 @@
       </ion-grid>
     </ion-list>
 
-    <!-- Question 11 -->
+    <!-- Question 12 -->
     <ion-list>
       <ion-grid>
-        <ion-radio-group>
+        <ion-radio-group (ionChange)="questionValue('question12',$event)">
 
           <ion-row>
             <ion-list-header>
@@ -637,7 +637,7 @@
       </ion-grid>
     </ion-list>
 
-    <!-- Question 12 -->
+    <!-- Question 13 -->
     <ion-list>
       <ion-grid>
         <ion-row>
@@ -650,7 +650,7 @@
           <ion-col>
             <ion-item>
               <ion-label position="floating">Lister les entreprises ici :</ion-label>
-              <ion-textarea></ion-textarea>
+              <ion-textarea (ionChange)="questionValue('question13',$event)"></ion-textarea>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -658,7 +658,7 @@
     </ion-list>
 
 
-    <!-- Question 13 -->
+    <!-- Question 14 -->
     <ion-list>
       <ion-grid>
         <ion-radio-group>
@@ -675,21 +675,21 @@
             <ion-col>
               <ion-item>
                 <ion-label>Un job</ion-label>
-                <ion-checkbox slot="start" name="question13" value="un-job"></ion-checkbox>
+                <ion-checkbox slot="start" name="question13" value="un-job" (ionChange)="checkboxValue('question14', $event)"></ion-checkbox>
               </ion-item>
             </ion-col>
 
             <ion-col>
               <ion-item>
                 <ion-label>Un contact/rendez-vous</ion-label>
-                <ion-checkbox slot="start" name="question13" value="un-contact-rendez-vous"></ion-checkbox>
+                <ion-checkbox slot="start" name="question13" value="un-contact-rendez-vous" (ionChange)="checkboxValue('question14', $event)"></ion-checkbox>
               </ion-item>
             </ion-col>
 
             <ion-col>
               <ion-item>
                 <ion-label>Des informations</ion-label>
-                <ion-checkbox slot="start" name="question13" value="des-informations"></ion-checkbox>
+                <ion-checkbox slot="start" name="question13" value="des-informations" (ionChange)="checkboxValue('question14', $event)"></ion-checkbox>
               </ion-item>
             </ion-col>
 
@@ -699,10 +699,10 @@
       </ion-grid>
     </ion-list>
 
-    <!-- Question 14 -->
+    <!-- Question 15 -->
     <ion-list>
       <ion-grid>
-        <ion-radio-group name="question14" [(ngModel)]="question14">
+        <ion-radio-group name="question14" [(ngModel)]="question14" (ionChange)="questionValue('question15',$event)">
 
           <ion-row>
             <ion-list-header>
@@ -738,10 +738,10 @@
     </ion-list>
 
 
-    <!-- Question 14b-->
+    <!-- Question 15b-->
     <ion-list *ngIf="question14 === 'en-france' || question14 === 'dans-la-region-hauts-de-france'">
       <ion-grid>
-        <ion-radio-group>
+        <ion-radio-group (ionChange)="questionValue('question15b',$event)">
 
           <ion-row>
             <ion-list-header>
@@ -778,7 +778,7 @@
       </ion-grid>
     </ion-list>
 
-    <!-- Question 15 -->
+    <!-- Question 16 -->
     <ion-list>
       <ion-grid>
         <ion-row>
@@ -791,7 +791,7 @@
           <ion-col>
             <ion-item>
               <ion-label position="floating">Remarques</ion-label>
-              <ion-textarea></ion-textarea>
+              <ion-textarea (ionChange)="questionValue('question16',$event)"></ion-textarea>
             </ion-item>
           </ion-col>
         </ion-row>

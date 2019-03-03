@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, } from '@angular/forms';
+import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questionnaire',
@@ -13,8 +15,7 @@ export class QuestionnairePage implements OnInit {
   public questionnaireForm: FormGroup;
 
 
-
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public formBuilder: FormBuilder, public router: Router, public storage: Storage) {
     this.questionnaireForm = this.formBuilder.group({
       question1: [''],
       question2: [''],
@@ -32,10 +33,9 @@ export class QuestionnairePage implements OnInit {
       question13: [''],
       question14: [''],
       question15: [''],
+      question15b: [''],
       question16: [''],
-      question17: [''],
-      question18: [''],
-      dateVisite :  ['']
+      dateVisite: ['']
     })
   }
 
@@ -61,10 +61,58 @@ export class QuestionnairePage implements OnInit {
 
 
 
-  sendQuestionnaire() 
-  {
+  sendQuestionnaire() {
     this.questionnaireForm.controls["dateVisite"].setValue(new Date());
-    console.log(this.questionnaireForm.value)
+
+    /*
+    this.storage.get('counter')
+      .then((val) => { })
+      .catch((err) => {
+        console.log(err);
+        this.storage.set('counter', 0);
+      }
+      );
+
+    this.storage.get('counter').then((val) => {
+      var valeur = parseInt(val);
+      if (typeof valeur != 'number') {
+        valeur = 0;
+      }
+      valeur++;
+      this.storage.set(valeur.toString(), this.questionnaireForm.value);
+      this.storage.set('counter', valeur);
+      console.log(valeur);
+    });
+
+    this.storage.get("1").then((val2) => {
+      console.log(val2);
+    });
+    */
+
+    this.storage.get('reponse3').then((val) => {
+      var data = new Array();
+      if (val === null) {
+         data.push(this.questionnaireForm.value);
+      } else {
+        val.forEach(function (element1) {
+          data.push(element1);
+        });
+        data.push(this.questionnaireForm.value);
+      }
+
+      this.storage.set('reponse3', data);
+
+      /*
+      data.forEach(function (element) {
+        console.log(element);
+      });
+      */
+    });
+
+
+
+    this.router.navigateByUrl('remerciement');
+
   }
 
 
@@ -118,6 +166,48 @@ export class QuestionnairePage implements OnInit {
     valueSend.push(valeur);
 
     this.questionnaireForm.controls["question6"].setValue(valueSend);
+    console.log(valueSend);
+  }
+
+  question9autre(event) {
+
+    let valueBase = this.questionnaireForm.value["question9"];
+    let valueSend = new Array();
+
+    if (valueBase != []) {
+      valueBase.forEach(function (element) {
+        if (element == "internet" || element == "affiche" || element == "presse" || element == "reseaux-sociaux" || element == "famille-amis") {
+          valueSend.push(element);
+        }
+      });
+    }
+
+    // Ajouter dans le tableau
+    let valeur = event.detail.value;
+    valueSend.push(valeur);
+
+    this.questionnaireForm.controls["question9"].setValue(valueSend);
+    console.log(valueSend);
+  }
+
+  question10autre(event) {
+
+    let valueBase = this.questionnaireForm.value["question10"];
+    let valueSend = new Array();
+
+    if (valueBase != []) {
+      valueBase.forEach(function (element) {
+        if (element == "restauration" || element == "animation" || element == "hotellerie" || element == "services-a-la-personne" || element == "vente") {
+          valueSend.push(element);
+        }
+      });
+    }
+
+    // Ajouter dans le tableau
+    let valeur = event.detail.value;
+    valueSend.push(valeur);
+
+    this.questionnaireForm.controls["question10"].setValue(valueSend);
     console.log(valueSend);
   }
 
