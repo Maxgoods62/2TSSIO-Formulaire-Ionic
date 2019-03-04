@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 
@@ -12,6 +12,10 @@ export class QuestionnairePage implements OnInit {
 
   items: Array<string>;
 
+  question4a:String;
+  question7:String;
+  question12:String;
+  question14:String;
   public questionnaireForm: FormGroup;
 
 
@@ -117,7 +121,7 @@ export class QuestionnairePage implements OnInit {
       count++;
     }
 
-    if (count >= 10) {
+    if (count >= 9) {
       if (this.questionnaireForm.value["RGPD"] == true) {
         this.questionnaireForm.controls["dateVisite"].setValue(new Date());
 
@@ -166,9 +170,8 @@ export class QuestionnairePage implements OnInit {
           */
         });
 
-
-
         this.router.navigateByUrl('remerciement');
+        
       } else {
         // RGPD
         console.log("Pas de RGPD");
@@ -189,7 +192,7 @@ export class QuestionnairePage implements OnInit {
 
     this.questionnaireForm.controls[question].setValue(event.detail.value);
 
-    console.log(question + " : " + event.detail.value);
+   // console.log(question + " : " + event);
   }
 
   checkboxValue(question, event) {
@@ -214,7 +217,7 @@ export class QuestionnairePage implements OnInit {
       valueSend.splice(pos, 1)
       this.questionnaireForm.controls[question].setValue(valueSend);
     }
-    console.log(question + " : " + valueSend);
+   // console.log(question + " : " + valueSend);
   }
 
   question6autre(event) {
@@ -235,7 +238,7 @@ export class QuestionnairePage implements OnInit {
     valueSend.push(valeur);
 
     this.questionnaireForm.controls["question6"].setValue(valueSend);
-    console.log(valueSend);
+  //  console.log(valueSend);
   }
 
   question9autre(event) {
@@ -256,7 +259,7 @@ export class QuestionnairePage implements OnInit {
     valueSend.push(valeur);
 
     this.questionnaireForm.controls["question9"].setValue(valueSend);
-    console.log(valueSend);
+  //  console.log(valueSend);
   }
 
   question10autre(event) {
@@ -277,7 +280,7 @@ export class QuestionnairePage implements OnInit {
     valueSend.push(valeur);
 
     this.questionnaireForm.controls["question10"].setValue(valueSend);
-    console.log(valueSend);
+    // console.log(valueSend);
   }
 
 

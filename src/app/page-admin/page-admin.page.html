@@ -1,11 +1,11 @@
 <ion-header>
     <ion-grid>
       <ion-row>
-        <ion-col size="2">
+        <ion-col>
           <ion-button href="home">Retour à l'accueil</ion-button>
         </ion-col>
   
-        <ion-col align="center"size="8">
+        <ion-col align="center">
           <ion-toolbar>
             <ion-title style="color:black;">Page Administration</ion-title>
           </ion-toolbar>
@@ -16,6 +16,8 @@
 
 <ion-content padding>
   Bonjour, voici les données :
+  <ion-button (click) ="exportData()">Exporter les données</ion-button>
+
   <ion-list>
     <ion-grid>
       <ion-row *ngFor="let item of items" size="4" sizeMd="4" sizeSm="6" sizeXs="12">
